@@ -31,7 +31,8 @@
             <input type="password" class="form-control" id="senha" placeholder="Senha" name="senha">
         </div>
         <button type="submit" class="btn btn-primary btn-lg">Entrar</button>
-        <a href='cadastro.php'> Não tenho cadastro....</a>
+        <a href='cadastro.php'> Não tenho cadastro</a><br>
+        <a href='esquecisenha.php'> Esqueci minha senha</a>   
         </form>
     </div>
 </body>

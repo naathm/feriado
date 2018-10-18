@@ -7,6 +7,7 @@
 
     $id = $_POST["id"];
     $senha = $_POST["senha_editar"];
+    
     if($id!=''&& $senha != '') {
        
         $user = new Usuario();

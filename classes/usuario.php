@@ -9,10 +9,10 @@ private $log;
 private $id;
 
 public function setEmail($email){
-    $this->email;
+    $this->email = $email; 
 }
 public function getEmail($email){
-    $this->email;
+    return $this->email;
 }
 public function setSenha($senha){
     $this->senha;
@@ -33,10 +33,10 @@ public function getLog($log){
     $this->log;
 }
 public function setId($id){
-    $this->email;
+    $this->id = $id;
 }
 public function getId($id){
-    $this->email;
+    return $this->id;
 }
 
 public function cadastrar_usuario($email = "", $senha = "", $status = "", $log=""){
@@ -61,6 +61,45 @@ if($result === TRUE){
 }
 return  $retorno;
 
+}
+
+public function check_chave($email = "", $chave = ""){
+    $retorno = false;
+    if($email == ""){
+        return false;
+    }
+    $database = new Database();
+    $this->setEmail($email);
+    $this->setID($id);
+    $sql = "SELECT * FROM usuario WHERE email = '$email'";
+    $query = $database->executar($sql);
+    if($query->num_rows > 0){
+        $chavecorreta = md5($id).$senha;
+        if($chave == $chavecorreta){
+            die("ok");
+            $retorno = $id;
+            
+        }
+        
+    }
+    return $retorno;
+    }
+
+public function chave_acesso($email = ""){
+$retorno = false;
+if($email == ""){
+    return false;
+}
+$database = new Database();
+$this->setEmail($email);
+$sql = "SELECT * FROM usuario WHERE email = '$email'";
+$query = $database->executar($sql);
+if($query->num_rows > 0){
+    
+    $chave = md5($id).$senha;
+    $retorno = $chave;
+}
+return $retorno;
 }
 
 
