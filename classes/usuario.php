@@ -95,8 +95,9 @@ $this->setEmail($email);
 $sql = "SELECT * FROM usuario WHERE email = '$email'";
 $query = $database->executar($sql);
 if($query->num_rows > 0){
-    
-    $chave = md5($id).$senha;
+    $row = $query->fetch_assoc();
+    $id = $row['id'];
+    $chave = $id;
     $retorno = $chave;
 }
 return $retorno;
