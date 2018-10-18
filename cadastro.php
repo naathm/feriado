@@ -9,7 +9,12 @@ if($email!=''&& $senha != '') {
     if($senha == $confirmar_senha){
         $user = new Usuario();
         $cadastro_valido = $user->cadastrar_usuario($email, $senha, $status, $log);
-        if($cadastro_valido){
+
+
+        
+        if($cadastro_valido === 'fail'){
+            echo "<script>alert('E-mail já cadastrado no sistema!')</script>";
+        }else if($cadastro_valido){
             echo "<script>alert('Deu Bom');
             window.location.href = 'login.php';
             </script>";
