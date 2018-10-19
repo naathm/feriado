@@ -10,16 +10,16 @@ if($email!=''&& $senha != '') {
         $user = new Usuario();
         $cadastro_valido = $user->cadastrar_usuario($email, $senha, $status, $log);
         if($cadastro_valido){
-            echo "<script>alert('Deu Bom');
+            echo "<script>alert('Usuario cadastrado com sucesso');
             window.location.href = 'login.php';
             </script>";
             
         }else{
-                echo "<script>alert('algo deu errado');</script>";
+                echo "<script>alert('Erro ao cadastrar');</script>";
         }
     
     }else{
-        echo "<script>alert('senhas diferentes');</script>";
+        echo "<script>alert('Verifique se as senhas estão iguais');</script>";
     }
 }
 

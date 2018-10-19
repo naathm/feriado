@@ -70,13 +70,13 @@ public function check_chave($email = "", $chave = ""){
     }
     $database = new Database();
     $this->setEmail($email);
-    $this->setID($id);
     $sql = "SELECT * FROM usuario WHERE email = '$email'";
     $query = $database->executar($sql);
     if($query->num_rows > 0){
-        $chavecorreta = md5($id).$senha;
+        $row = $query->fetch_assoc();
+            $id = $row['id'];
+            $chavecorreta = md5(($id).$senha);
         if($chave == $chavecorreta){
-            die("ok");
             $retorno = $id;
             
         }
@@ -85,22 +85,23 @@ public function check_chave($email = "", $chave = ""){
     return $retorno;
     }
 
-public function chave_acesso($email = ""){
-$retorno = false;
-if($email == ""){
-    return false;
-}
-$database = new Database();
-$this->setEmail($email);
-$sql = "SELECT * FROM usuario WHERE email = '$email'";
-$query = $database->executar($sql);
-if($query->num_rows > 0){
-    
-    $chave = md5($id).$senha;
-    $retorno = $chave;
-}
-return $retorno;
-}
+    public function chave_acesso($email = ""){
+        $retorno = false;
+        if($email == ""){
+            return false;
+        }
+        $database = new Database();
+        $this->setEmail($email);
+        $sql = "SELECT * FROM usuario WHERE email = '$email'";
+        $query = $database->executar($sql);
+        if($query->num_rows > 0){
+            $row = $query->fetch_assoc();
+            $id = $row['id'];
+            $chave = md5($id).$senha;
+            $retorno = $chave;
+        }
+        return $retorno;
+        }
 
 
 public function autenticar_usuario($email = "", $pass = ""){

@@ -3,7 +3,7 @@
 <div class="jumbotron">
 <div class="container">
 <h1>Recuperar Senha</h1>
-<form method="post" class="" action="envianovasenha.php " >
+<form method="post" class="" action="envianovasenha.php " autocomplete="off">
     <div class="form-group"> 
     <label for="email">Informe seu e-mail</label>
     <input class="form-control" type="email" name="email"/><br/>
