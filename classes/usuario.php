@@ -51,16 +51,27 @@ $this->setStatus($status);
 $this->setLog($log);
     
 $database = new Database();
-$criptografia = md5($senha);      
-$sql = "INSERT INTO `usuario` (`id`, `email`, `senha`, `status`, `log`)
-    VALUES (NULL,'".$email."','".$criptografia."',0,'".$log."')";
-$result = $database->executar($sql);
 
-if($result === TRUE){
-    $retorno = true;
-}
-return  $retorno;
+$consulta = "SELECT *  FROM usuario WHERE email ='".$email."'"; 
+$resultCons = $database->executar($consulta);
+  
 
+$linhaCons = $resultCons->num_rows;
+
+    if($linhaCons > 0){
+        return 'fail';
+    }else{
+
+        $criptografia = md5($senha);      
+        $sql = "INSERT INTO `usuario` (`id`, `email`, `senha`, `status`, `log`)
+            VALUES (NULL,'".$email."','".$criptografia."',0,'".$log."')";
+        $result = $database->executar($sql);
+
+    if($result === TRUE){
+        $retorno = true;
+    }
+        return  $retorno;
+    }
 }
 
 
