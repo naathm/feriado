@@ -1,17 +1,17 @@
 <?php 
 require_once('classes/usuario.php');
+
 $email = $_POST["email"];
 $senha = $_POST["senha"];
 $status= $_POST["status"];
 $log = $_POST["log"];
 $confirmar_senha = $_POST["confirmar_senha"];
+
 if($email!=''&& $senha != '') {
     if($senha == $confirmar_senha){
         $user = new Usuario();
         $cadastro_valido = $user->cadastrar_usuario($email, $senha, $status, $log);
 
-
-        
         if($cadastro_valido === 'fail'){
             echo "<script>alert('E-mail já cadastrado no sistema!')</script>";
         }else if($cadastro_valido){
@@ -27,7 +27,6 @@ if($email!=''&& $senha != '') {
         echo "<script>alert('senhas diferentes');</script>";
     }
 }
-
 
 ?>
 <div class="jumbotron">
