@@ -104,6 +104,7 @@ public function check_chave($email = "", $chave = ""){
         }
 
 
+
 public function autenticar_usuario($email = "", $pass = ""){
 $boolean = false;
 
