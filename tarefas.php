@@ -1,8 +1,9 @@
-
+<?php
+    require_once('header.php');
+?>
     <div class="jumbotron">
         
 <?php
-    require_once('header.php');
     require_once('classes/tarefa.php');
     if($_POST['descricao']!='' && $_POST['titulo']!=''){
         $novo = new Tarefa();
