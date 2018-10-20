@@ -75,7 +75,8 @@ public function check_chave($email = "", $chave = ""){
     if($query->num_rows > 0){
         $row = $query->fetch_assoc();
             $id = $row['id'];
-            $chavecorreta = md5(($id).$senha);
+            $id = $row['senha'];
+            $chavecorreta = md5($id.$senha);
         if($chave == $chavecorreta){
             $retorno = $id;
             
@@ -97,7 +98,8 @@ public function check_chave($email = "", $chave = ""){
         if($query->num_rows > 0){
             $row = $query->fetch_assoc();
             $id = $row['id'];
-            $chave = md5($id).$senha;
+            $senha = $row['senha'];
+            $chave = md5($id.$senha);
             $retorno = $chave;
         }
         return $retorno;
