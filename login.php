@@ -1,3 +1,8 @@
+<?php
+require_once('header.php');
+
+?>
+
 <!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
@@ -15,6 +20,14 @@
 
         <?php
     }
+
+    if($_GET["erro"] == 154) {
+        ?>
+        <div class="alert alert-danger text-center" id="alert" role="alert">Você precisa estar logado para acessar o sistema</div>
+
+        <?php
+    }
+   echo $_SESSION['logado'];
 ?>
 
 <body>
