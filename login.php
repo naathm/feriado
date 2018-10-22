@@ -27,7 +27,6 @@ require_once('header.php');
 
         <?php
     }
-   echo $_SESSION['logado'];
 ?>
 
 <body>
