@@ -26,7 +26,7 @@ if(!isset($_SESSION['logado']) && !in_array($host,$array_merged)) {
     header('location:login.php?erro=154');
 }
 
-if (isset($_SESSION['logado']) && $host == $login_page) {
+if (isset($_SESSION['logado']) && $host == $login_page_path) {
     header('location:index.php?login=2');
 }
 ?>
