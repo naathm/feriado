@@ -1,7 +1,7 @@
 <?php
 class Database{
 
-    private $db_server = 'cursophp_db_1';
+    private $db_server = 'feriado_db_1';
     private $db_user = 'root';
     private $db_password = 'phprs';
     private $db_database = 'tarefas';

@@ -87,7 +87,10 @@ return $boolean;
 }
 
 public function getAllUsuarios(){
-$query  = "SELECT * FROM `usuario`";
+$query  = "SELECT *
+FROM usuario
+INNER JOIN tb_grupo_usuario
+ON usuario.id and tb_grupo_usuario.id";
 $database = new Database();
 $result = $database->executar($query);
 $usuarios = [];
