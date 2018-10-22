@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 require_once('classes/usuario.php');
 if(!isset($_SESSION['logado'])){
    exit(header('location:login.php'));
@@ -14,6 +15,12 @@ $logout = $_GET['logout'];
 if($logout == 1){
    session_unset();
    exit(header('location:login.php'));
+}
+
+$usuAdmin = $_GET['adm'];
+
+if($usuAdmin == 1){
+    $_SESSION['admin'] = 1;
 }
 
 ?>
@@ -41,7 +48,7 @@ if($logout == 1){
 
 
 <body>
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
         <ul class="navbar-nav">
             <li class="nav-item active">
                 <a class="nav-link" href="usuarios.php">Usuários</a>

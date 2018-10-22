@@ -13,6 +13,7 @@ if(!$valid_user && !$_SESSION['logado']) {
 }else{
    $_SESSION['logado'] = $valid_user;
    $_SESSION['usuario'] = $email;
+
    exit(header('location:index.php'));
 }   
 ?>

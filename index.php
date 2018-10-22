@@ -9,5 +9,4 @@ if($_GET["login"] == 1) {
     <?php
 }
 
-
 require_once('footer.php');

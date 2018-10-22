@@ -5,6 +5,10 @@
     require_once('header.php');
     require_once('classes/usuario.php');
 
+    if(isset($_SESSION['admin'])){
+        $usuarioAdmin = $_SESSION['admin'];
+    }
+
     $id = $_POST["id"];
     $senha = $_POST["senha_editar"];
     if($id!=''&& $senha != '') {
@@ -43,8 +47,12 @@
                         <th>Email</th>
                         <th>Status</th>
                         <th>Log</th>
-                        <th>Editar</th>
-                        <th>Excluir</th>
+                        <?php 
+                        if($usuarioAdmin == 1){
+                            echo "<th>Editar</th>
+                            <th>Excluir</th>";
+                            }
+                        ?>
                        
                     </tr>
                 </thead>
@@ -58,10 +66,13 @@
                         <td>".$valor["id"]."</td>
                         <td>".$valor['email']."</td>
                         <td>".$valor['status']."</td>
-                        <td>".$valor['log']."</td>
-                        <td><a href='usuarios.php?id={$valor["id"]}&edit=1'>Editar</a></td>
-                        <td><a href='#'>Excluir</a></td>
-                    </tr>";
+                        <td>".$valor['log']."</td>";
+                        if($usuarioAdmin == 1){
+                        echo "<td><a href='usuarios.php?id={$valor["id"]}&edit=1'>Editar</a></td>
+                        <td><a href='#'>Excluir</a></td>";
+                        }
+
+                 echo"</tr>";
             }
         ?>
         <?php
