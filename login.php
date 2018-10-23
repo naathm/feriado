@@ -1,3 +1,8 @@
+<?php
+require_once('header.php');
+
+?>
+
 <!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
@@ -12,6 +17,13 @@
     if($_GET["erro"] == 171) {
         ?>
         <div class="alert alert-danger text-center" id="alert" role="alert">Usuário ou Senha inválida</div>
+
+        <?php
+    }
+
+    if($_GET["erro"] == 154) {
+        ?>
+        <div class="alert alert-danger text-center" id="alert" role="alert">Você precisa estar logado para acessar o sistema</div>
 
         <?php
     }

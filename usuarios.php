@@ -1,8 +1,9 @@
-
+<?php
+    require_once('header.php');
+?>
     <div class="jumbotron">
         
 <?php
-    require_once('header.php');
     require_once('classes/usuario.php');
 
     $id = $_POST["id"];
