@@ -1,7 +1,6 @@
 <?php
-
-error_reporting(E_ALL);
-require_once('session.php');
+    error_reporting(E_ALL);
+    require_once('session.php');
 ?>
 
 <!DOCTYPE html>
@@ -20,7 +19,7 @@ require_once('session.php');
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
         <ul class="navbar-nav">
             <li class="nav-item active">
                 <a class="nav-link" href="usuarios.php">Usuários</a>

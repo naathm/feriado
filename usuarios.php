@@ -60,10 +60,14 @@
         ?>
 
        <div id="busca" class="form-inline">
+
         	<strong>Digite total ou parte E-mail: </strong> 
             <input type="text" id="busca_email" class="form-control" />
             <button class="btn btn-primary" onClick="javascript:window.open('usuarios.php?email_usu='+$('#busca_email').val(),'_self')">BUSCAR</button> 
-            <?php if($_GET): ?><a href="usuarios.php" target="_self"> <strong> Limpar filtro</strong></a><?php endif;?> 
+
+            <?php if($_GET): ?>
+                <a href="usuarios.php" target="_self"> <strong> Limpar filtro</strong></a>
+            <?php endif;?> 
         </div>
 
             <table class='table table-borderless table-hover'>
@@ -73,36 +77,40 @@
                         <th>Email</th>
                         <th>Status</th>
                         <th>Log</th>
-                        <th>Editar</th>
-                        <th>Excluir</th>
+                        <?php 
+                        if($usuarioAdmin == 1){
+                            echo "<th>Editar</th>
+                            <th>Excluir</th>";
+                            }
+                        ?>
                        
                     </tr>
                 </thead>
                 <tbody class="table-striped">
 
-            <?php
-				
-                if($usuarios){
- 
-                    foreach ($usuarios as $valor){
-                        
-                        echo "<tr>
-                                <td>".$valor["id"]."</td>
-                                <td>".$valor['email']."</td>
-                                <td>".$valor['status']."</td>
-                                <td>".$valor['log']."</td>";
+                <?php
+                    
+                    if($usuarios){
+    
+                        foreach ($usuarios as $valor){
+                            
+                            echo "<tr>
+                                    <td>".$valor["id"]."</td>
+                                    <td>".$valor['email']."</td>
+                                    <td>".$valor['status']."</td>
+                                    <td>".$valor['log']."</td>";  
 
-                                if(permissao_usuario() === "administrador"){
-                                    echo "<td><a href='usuarios.php?id={$valor["id"]}&edit=1'>Editar</a></td>
-                                    <td><a href='usuarios.php?id={$valor["id"]}&acao=excluir'>Excluir</a></td>";
-                                }
+                                    if(permissao_usuario() === "administrador"){
+                                        echo "<td><a href='usuarios.php?id={$valor["id"]}&edit=1'>Editar</a></td>
+                                        <td><a href='usuarios.php?id={$valor["id"]}&acao=excluir'>Excluir</a></td>";
+                                    }
 
-                           echo"</tr>";
+                            echo"</tr>";
+                        }
+                    }else{
+                        echo "<p>Nenhum usuário encontrado</p>";
                     }
-                }else{
-                    echo "<p>Nenhum usuário encontrado</p>";
-                }
-            ?>
+                ?>
 
             <?php
                 $database = new Database();
