@@ -14,14 +14,14 @@ require_once('header.php');
 </head>
 
 <?php
-    if($_GET["erro"] == 171) {
+    if(isset($_GET["erro"]) && $_GET["erro"] == 171) {
         ?>
         <div class="alert alert-danger text-center" id="alert" role="alert">Usuário ou Senha inválida</div>
 
         <?php
     }
 
-    if($_GET["erro"] == 154) {
+    if(isset($_GET["erro"]) && $_GET["erro"] == 154) {
         ?>
         <div class="alert alert-danger text-center" id="alert" role="alert">Você precisa estar logado para acessar o sistema</div>
 
