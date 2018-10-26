@@ -11,6 +11,7 @@ $valid_user = $user->autenticar_usuario($email,$senha);
 if($valid_user) {
     $_SESSION['logado'] = $valid_user;
     $_SESSION['usuario'] = $email;
+    $_SESSION['permissao'] = 0;
     header('location:index.php?login=1');
 }else {
     header('location:login.php?erro=171');
