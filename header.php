@@ -1,6 +1,7 @@
 <?php
-require_once('session.php');
 
+error_reporting(E_ALL);
+require_once('session.php');
 ?>
 
 <!DOCTYPE html>
@@ -18,21 +19,6 @@ require_once('session.php');
     </style>
 </head>
 
-<!--<style>
-    form {
-    
-        width: 400px; 
-        height: 150px; 
-        left: 50%; 
-        margin: -130px 0 0 -210px; 
-        padding:10px;
-        position: absolute; 
-        top: 30%;
-         }
-       
-</style>-->
-
-
 <body>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
         <ul class="navbar-nav">
@@ -47,14 +33,14 @@ require_once('session.php');
             </li>
             <?php
 
-            if($_SESSION['logado']) {
+            if(isset($_SESSION['logado'])) {
                 ?>
                 <li class="nav-item active right-align">
                 <a class="nav-link" href="logout.php">logout</a>
             </li>
 
             <?php
-            }
+                }
             ?>
         </ul>
     </nav>
