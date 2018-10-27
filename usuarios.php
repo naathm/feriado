@@ -12,7 +12,7 @@
             $id_usuario = $_POST["id_usuario"];
             $senha = $_POST["senha"];
 
-            if($id_usuario!=''&& $senha != '') {
+            if($id_usuario!='' && $senha != '') {
             
                 $user = new Usuario();
                 $cadastro_valido = $user->Editar_usuario($id_usuario, $senha);
@@ -77,8 +77,10 @@
                         <th>Email</th>
                         <th>Status</th>
                         <th>Log</th>
+                        
                         <?php 
-                        if($usuarioAdmin == 1){
+                        
+                        if(permissao_usuario() === "administrador"){
                             echo "<th>Editar</th>
                             <th>Excluir</th>";
                             }
